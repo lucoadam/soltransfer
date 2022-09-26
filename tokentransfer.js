@@ -19,7 +19,7 @@ const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 // for mainnet use:
 //const connection = new Connection("https://api.mainnet-beta.solana.com");
 const amount = 10
-const tokenAddress = "2iB2oZaJZZBCmMecrz79wrMdu6Zn5UA2apUYdVy4jJUD";
+const tokenMintAddress = "2iB2oZaJZZBCmMecrz79wrMdu6Zn5UA2apUYdVy4jJUD";
 
 const sender = Keypair.fromSecretKey(
   bs58.decode("4NMwxzmYj2uvHuq8xoqhY8RXg63KSVJM1DXkpbmkUY7YQWuoyQgFnnzn6yo3CMnqZasnNPNuAT2TLwQsCaKkUddp")
@@ -30,7 +30,7 @@ const toAddress = "22fY53fd1PYwh8ZJS2iEwH72s6P1cT8oFjcSpp5atczv";
 const fromPublicKey = sender.publicKey;
 const toPublicKey = new PublicKey(toAddress);
 
-const tokenPublicKey = new PublicKey(tokenAddress);
+const tokenPublicKey = new PublicKey(tokenMintAddress);
 
 (async () => {
   const fromTokenAccount = await getOrCreateAssociatedTokenAccount(
