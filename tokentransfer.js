@@ -1,15 +1,11 @@
 const {
   Keypair,
-  Transaction,
   Connection,
   PublicKey,
-  sendAndConfirmTransaction,
   clusterApiUrl,
 } = require("@solana/web3.js");
 const {
   getOrCreateAssociatedTokenAccount,
-  TOKEN_PROGRAM_ID,
-  createTransferInstruction,
   transfer,
 } = require("@solana/spl-token");
 const bs58 = require("bs58");
@@ -32,7 +28,7 @@ const toPublicKey = new PublicKey(toAddress);
 
 const tokenPublicKey = new PublicKey(tokenMintAddress);
 
-(async () => {
+const tokenTransfer = async () => {
   const fromTokenAccount = await getOrCreateAssociatedTokenAccount(
     connection,
     fromPublicKey,
@@ -59,4 +55,5 @@ const tokenPublicKey = new PublicKey(tokenMintAddress);
     amount * Math.pow(10, data.value.data.parsed.info.tokenAmount.decimals) // data.value.data.parsed.info.tokenAmount.amount
   );
   console.log("transaction hash", transfer1);
-})();
+}
+exports.tokenTransfer = tokenTransfer;

@@ -10,7 +10,7 @@ const sender = Keypair.fromSecretKey(
   bs58.decode("4NMwxzmYj2uvHuq8xoqhY8RXg63KSVJM1DXkpbmkUY7YQWuoyQgFnnzn6yo3CMnqZasnNPNuAT2TLwQsCaKkUddp")
 );
 
-(async () => {
+const solanaTransfer = async () => {
   let tx = new Transaction().add(
     SystemProgram.transfer({
       fromPubkey: sender.publicKey,
@@ -22,4 +22,6 @@ const sender = Keypair.fromSecretKey(
 
   let txhash = await sendAndConfirmTransaction(connection, tx, [sender]);
   console.log(`txhash: ${txhash}`);
-})();
+}
+
+exports.solanaTransfer = solanaTransfer;

@@ -1,10 +1,13 @@
 {
-  "name": "solanafundtransfer",
+  "name": "soltransfer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "soltransfer": "./index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +15,7 @@
   "dependencies": {
     "@solana/spl-token": "^0.3.5",
     "@solana/web3.js": "^1.63.1",
-    "bs58": "^5.0.0"
+    "bs58": "^5.0.0",
+    "yargs": "^17.5.1"
   }
 }
